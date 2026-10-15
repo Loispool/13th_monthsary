@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy 11th Monthsary 💗</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;}
+body{min-height:100vh;background:linear-gradient(160deg,#fff0f6 0%,#ffd6e7 55%,#ffc2dc 100%);font-family:"Dancing Script",cursive,Georgia,serif;overflow-x:hidden;position:relative}
+#hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.h{position:absolute;top:-40px;color:#e0204a;animation:fall linear forwards;text-shadow:0 0 6px rgba(255,255,255,.5)}
+@keyframes fall{to{transform:translate(var(--dx),110vh) rotate(var(--rot))}}
+main{position:relative;z-index:2;min-height:100vh;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 28px;padding:24px 12px}
+h1{width:100%;text-align:center;margin:0;color:#c2185b;font-size:clamp(28px,6vw,44px);text-shadow:0 2px 0 #fff}
+.drag{position:relative;width:min(340px,80vw);cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;margin-right:20px}
+#bouquet{display:block;width:100%;filter:drop-shadow(0 12px 14px rgba(194,24,91,.25));pointer-events:none}
+.env{position:absolute;right:-26px;bottom:22px;width:150px;height:100px;cursor:pointer;perspective:600px;border:0;background:none;padding:0;transform:rotate(-14deg);animation:bob 2s ease-in-out infinite;z-index:5;filter:drop-shadow(0 6px 8px rgba(194,24,91,.35))}
+@keyframes bob{50%{transform:rotate(-14deg) translateY(-4px)}}
+.env::after{content:"";position:absolute;left:50%;top:-9px;width:46px;height:18px;transform:translateX(-50%) rotate(4deg);background:rgba(255,255,255,.7);border:1px dashed #ff8ab6;z-index:6}
+.env .back,.env .fl,.env .fr,.env .fb,.env .flap{position:absolute;inset:0}
+.back{background:#ffe3ee;border-radius:6px;box-shadow:0 8px 16px rgba(194,24,91,.25)}
+.fl{background:#ffb6d0;clip-path:polygon(0 0,55% 52%,0 100%)}
+.fr{background:#ffb6d0;clip-path:polygon(100% 0,45% 52%,100% 100%)}
+.fb{background:#ff9fc3;clip-path:polygon(0 100%,50% 40%,100% 100%);border-radius:0 0 6px 6px}
+.flap{background:#ff8ab6;clip-path:polygon(0 0,100% 0,50% 62%);transform-origin:top;transition:transform .6s,z-index .6s;z-index:3}
+.env.open{animation:none}
+.env.open .flap{transform:rotateX(180deg);z-index:0}
+.seal{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);font-size:26px;z-index:4;color:#e0204a;transition:opacity .3s}
+.env.open .seal{opacity:0}
+.hint{color:#c2185b;font-size:22px}
+#modal{position:fixed;inset:0;z-index:10;background:rgba(255,182,208,.55);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:16px}
+#modal.show{display:flex}
+.letter{max-width:460px;width:100%;max-height:88vh;overflow:auto;background:#fff9fb;border:2px solid #ffb6d0;border-radius:14px;padding:26px 24px;color:#8e1146;font-size:clamp(20px,4.6vw,25px);line-height:1.5;box-shadow:0 16px 40px rgba(194,24,91,.35);animation:rise .6s ease-out;text-align:center}
+@keyframes rise{from{transform:translateY(60px) scale(.9);opacity:0}}
+.letter button{margin-top:14px;font:inherit;background:#ff6fa5;color:#fff;border:0;border-radius:999px;padding:6px 22px;cursor:pointer}
+</style></head><body>
+<div id="hearts"></div>
+<main>
+<h1>Happy 11th Monthsary 💗</h1>
+
+<div class="drag" id="drag">
+<svg id="bouquet" viewBox="0 0 360 420" role="img" aria-label="Crochet rose bouquet in a pink vase">
+<defs>
+<pattern id="st" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M1 1.5 L4 6 L7 1.5" fill="none" stroke="#000" stroke-opacity=".28" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></pattern>
+<pattern id="stw" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M1 1.5 L4 6 L7 1.5" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></pattern>
+<filter id="yarn"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.2"/></filter>
+</defs>
+<g id="stems" stroke="#3f8f4f" stroke-width="7" stroke-linecap="round" fill="none"></g>
+<g id="leaves"></g>
+<g id="roses" filter="url(#yarn)"></g>
+<!-- vase -->
+<g filter="url(#yarn)">
+<path d="M112 300 L248 300 L232 392 Q180 408 128 392 Z" fill="#ff8fb8"/>
+<path d="M112 300 L248 300 L232 392 Q180 408 128 392 Z" fill="url(#st)"/>
+<path d="M112 300 L248 300 L232 392 Q180 408 128 392 Z" fill="url(#stw)"/>
+<rect x="100" y="286" width="160" height="24" rx="12" fill="#ff6fa5"/>
+<rect x="100" y="286" width="160" height="24" rx="12" fill="url(#st)"/>
+<rect x="118" y="335" width="124" height="14" fill="#ffd0e2"/>
+<rect x="118" y="335" width="124" height="14" fill="url(#st)"/>
+<text x="180" y="373" text-anchor="middle" font-size="26" fill="#e0204a">♥</text>
+</g>
+</svg>
+<button class="env" id="env" aria-label="Open the envelope">
+<div class="back"></div><div class="fl"></div><div class="fr"></div><div class="fb"></div><div class="flap"></div><div class="seal">♥</div>
+</button>
+</div>
+<div class="hint" style="width:100%;text-align:center">drag the bouquet · tap the envelope 💌</div>
+</main>
+
+<div id="modal"><div class="letter">
+<p style="margin:0">I love you baby. Happy 11th monthsary. Tandaan mo kahit Wala ako dyan sa tabi mo, I'm always thinking of you baby ko. Thank you for always being there for me. Please accept this simple gift for you. Mahal na mahal kita baby ko 💗</p>
+<button id="close">Close</button>
+</div></div>
+
+<script>
+const NS="http://www.w3.org/2000/svg";
+function el(t,a,p){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e}
+function rose(cx,cy,r,base,hi){
+  const g=el("g",{},document.getElementById("roses"));
+  el("circle",{cx,cy,r,fill:base},g);
+  el("circle",{cx,cy,r,fill:"url(#st)"},g);
+  let d="";const turns=3.6,N=140;
+  for(let i=0;i<=N;i++){const t=i/N,a=t*turns*2*Math.PI,rr=r*.82*t;
+    d+=(i?"L":"M")+(cx+rr*Math.cos(a)).toFixed(1)+" "+(cy+rr*Math.sin(a)).toFixed(1)}
+  el("path",{d,fill:"none",stroke:hi,"stroke-width":r*.2,"stroke-linecap":"round","stroke-opacity":.85},g);
+  el("path",{d,fill:"none",stroke:"#fff","stroke-width":r*.06,"stroke-dasharray":"2 4","stroke-linecap":"round","stroke-opacity":.55},g);
+  el("circle",{cx,cy,r:r*.16,fill:base},g);
+  el("circle",{cx,cy,r,fill:"none",stroke:"#7a0b26","stroke-opacity":.35,"stroke-width":2,"stroke-dasharray":"3 3"},g);
+}
+const R=[[180,105,48],[112,150,40],[248,150,40],[148,215,36],[214,212,36],[78,215,26],[282,214,26]];
+const stems=document.getElementById("stems"),leaves=document.getElementById("leaves");
+R.forEach(([x,y])=>el("path",{d:`M${x} ${y} Q${(x+180)/2} ${y+90} 180 300`},stems));
+[[130,270,-40],[230,270,40],[100,240,-65],[260,240,65],[160,255,-15],[200,255,15]].forEach(([x,y,rot])=>{
+  const g=el("g",{transform:`translate(${x} ${y}) rotate(${rot})`},leaves);
+  el("ellipse",{cx:0,cy:-22,rx:13,ry:28,fill:"#4fa35f"},g);
+  el("ellipse",{cx:0,cy:-22,rx:13,ry:28,fill:"url(#stw)"},g);
+  el("path",{d:"M0 0 L0 -46",stroke:"#2f7a40","stroke-width":2,"stroke-dasharray":"3 3"},g)});
+const cols=[["#e63a5e","#ff6b8b"],["#f2557a","#ff8fa8"],["#d92a52","#f5607f"],["#ff7a9c","#ffb0c4"],["#e8456b","#ff7f9b"],["#ff8fb0","#ffc2d4"],["#ff6f91","#ffa3b8"]];
+R.forEach((r,i)=>rose(r[0],r[1],r[2],cols[i][0],cols[i][1]));
+
+// falling hearts
+const hs=document.getElementById("hearts");
+function drop(){
+  const h=document.createElement("div");h.className="h";h.textContent="♥";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(10+Math.random()*24)+"px";
+  h.style.opacity=.55+Math.random()*.45;
+  h.style.setProperty("--dx",(Math.random()*80-40)+"px");
+  h.style.setProperty("--rot",(Math.random()*120-60)+"deg");
+  h.style.animationDuration=(5+Math.random()*6)+"s";
+  hs.appendChild(h);setTimeout(()=>h.remove(),11500);
+}
+for(let i=0;i<18;i++)setTimeout(drop,i*250);
+setInterval(drop,380);
+
+// envelope
+const env=document.getElementById("env"),modal=document.getElementById("modal");
+env.onclick=()=>{if(moved)return;env.classList.add("open");setTimeout(()=>modal.classList.add("show"),650)};
+function closeM(){modal.classList.remove("show");env.classList.remove("open")}
+document.getElementById("close").onclick=closeM;
+modal.onclick=e=>{if(e.target===modal)closeM()};
+
+// drag
+let moved=false;const dr=document.getElementById("drag");let ox=0,oy=0,sx=0,sy=0,bx=0,by=0,down=false;
+dr.addEventListener("pointerdown",e=>{down=true;moved=false;sx=e.clientX;sy=e.clientY;bx=ox;by=oy;dr.style.cursor="grabbing"});
+window.addEventListener("pointermove",e=>{if(!down)return;const dx=e.clientX-sx,dy=e.clientY-sy;if(Math.abs(dx)+Math.abs(dy)>6)moved=true;if(moved){ox=bx+dx;oy=by+dy;dr.style.transform=`translate(${ox}px,${oy}px)`}});
+function up(){down=false;dr.style.cursor="grab";setTimeout(()=>{moved=false},60)}
+window.addEventListener("pointerup",up);window.addEventListener("pointercancel",up);
+</script>
+</body></html>
